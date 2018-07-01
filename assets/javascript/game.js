@@ -1,58 +1,125 @@
-// four buttons with random numbers between 1-12 attached to each button.  Hidden from User.
-// generate a random number between 19-120.  display Number.
-// when the four buttons are clicked their values are added to each other.  Display Number.
-// the total value of the crystals clicked is compared to the other randomly generated number.
-// if the total of crystals clicked is === to the other randomly generated number You Win.
-// if the total of crystals clicked is > than the randomly generated number you lose.
+$(document).ready(function () {
 
-// if Win then 1. generate a new random number between 19-120. 
-//             2. generate new random numbers between 1-12 for crystal buttons. 
-//             3. reset users score
-//             4. wins++
-
-// if Lose then 1. generate a new random number between 19-120. 
-//              2. generate new random numbers between 1-12 for crystal buttons. 
-//              3. reset users score
-//              4. loses++
-
-// function reset () {
-//      generate a new random number between 19-120, 
-//      generate new random numbers between 1-12 for crystal buttons.
-//      reset users score
-// }
-var wins = 0;
-var loses= 0;
-var crystalTotal = 100;
+    // Global variables declared
+    var wins = 0;
+    var losses = 0;
+    var userScore = 0;
+    var crystalArray = []
+    var numToMatch = Math.floor(Math.random() * (120 - 19 + 1) + 19);
 
 
-function reset () {
 
-var numToMatch = Math.floor(Math.random()*(120-19+1)+19);
-console.log(numToMatch);
+    //reset function.
+    function reset() {
 
-var crystal1 = Math.floor(Math.random()*12)+1;
-console.log(crystal1);
+        crystalArray = [];
 
-var crystal2 = Math.floor(Math.random()*12)+1;
-console.log(crystal2);
+        numToMatch = Math.floor(Math.random() * (120 - 19 + 1) + 19);
+        $("#number").text("Reach total to convert to Emeralds: " + numToMatch);
 
-var crystal3 = Math.floor(Math.random()*12)+1;
-console.log(crystal3);
+        while (crystalArray.length < 4) {
+            var ranCrysNum = Math.floor(Math.random() * 12) + 1;
+            // checks for duplicate random numbers. 
+            if (crystalArray.indexOf(ranCrysNum) === -1) {
+                crystalArray.push(ranCrysNum);
+                console.log(crystalArray);
+            }
+        }
 
-var crystal4 = Math.floor(Math.random()*12)+1;
-console.log(crystal4);
+        diamond.attr("data-crystalvalue", crystalArray[0]);
+        redstone.attr("data-crystalvalue", crystalArray[1]);
+        coal.attr("data-crystalvalue", crystalArray[2]);
+        flint.attr("data-crystalvalue", crystalArray[3]);
 
-$("#number").html("<h2>" + crystalTotal + "</h2>");
+        userScore = 0;
+        $("#userscore").text("Resources converted: " + userScore);
+    }
 
-$("#number").text(crystal1);
+    // Check for the Win function.
+    function checkWin() {
+        if (userScore === numToMatch) {
+            wins++;
+            $("#wins").text("Success: " + wins);
+            reset();
+        } else if (userScore > numToMatch) {
+            losses++
+            $("#losses").text("Fails: " + losses);
+            reset();
+        }
+    }
 
-$("#wins").text(wins);
-
-$("#loses").text(loses);
-
-}
 
 
-reset ();
+    // shows User Score, Wins, Losses, and Number to Match on webpage.
+    $("#userscore").text("Resources converted: " + userScore);
+    $("#wins").text("Success: " + wins);
+    $("#losses").text("Fails: " + losses);
+    $("#number").text("Reach total to convert to Emeralds: " + numToMatch);
+
+    // creates  4  random numbers, and then populates an array with said numbers.
+    while (crystalArray.length < 4) {
+        var ranCrysNum = Math.floor(Math.random() * 12) + 1;
+        // checks for duplicate random numbers. 
+        if (crystalArray.indexOf(ranCrysNum) === -1) {
+            crystalArray.push(ranCrysNum);
+            console.log(crystalArray);
+        }
+    }
+
+    // Sets variables to the their respective divs. 
+    var diamond = $("#diamond");
+    var redstone = $("#redstone");
+    var coal = $("#coal");
+    var flint = $("#flint");
+
+    // Assign array numbers to the seperate divs.
+    diamond.attr("data-crystalvalue", crystalArray[0]);
+    redstone.attr("data-crystalvalue", crystalArray[1]);
+    coal.attr("data-crystalvalue", crystalArray[2]);
+    flint.attr("data-crystalvalue", crystalArray[3]);
+
+    // First button.
+    $("#diamond").on("click", function () {
+        var crystalValue1 = diamond.attr("data-crystalvalue");
+        crystalValue1 = parseInt(crystalValue1);
+        userScore += crystalValue1;
+        $("#userscore").text("Resources converted: " + userScore);
+        checkWin();
+    });
+
+    // Second button.
+    $("#redstone").on("click", function () {
+        var crystalValue2 = redstone.attr("data-crystalvalue");
+        crystalValue2 = parseInt(crystalValue2);
+        userScore += crystalValue2;
+        $("#userscore").text("Resources converted: " + userScore);
+        checkWin();
+    });
+
+    // Third button.
+    $("#coal").on("click", function () {
+        var crystalValue3 = coal.attr("data-crystalvalue");
+        crystalValue3 = parseInt(crystalValue3);
+        userScore += crystalValue3;
+        $("#userscore").text("Resources converted: " + userScore);
+        checkWin();
+    });
+
+    // Fourth button.
+    $("#flint").on("click", function () {
+        var crystalValue4 = flint.attr("data-crystalvalue");
+        crystalValue4 = parseInt(crystalValue4);
+        userScore += crystalValue4;
+        $("#userscore").text("Resources converted: " + userScore);
+        checkWin();
+    });
+
+});
+
+
+
+
+
+
 
 

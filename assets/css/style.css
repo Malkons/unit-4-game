@@ -1,0 +1,55 @@
+body {
+    margin: 0 auto;
+    width: 100%;
+    font-family: 'Press Start 2P', cursive;
+    background-image: url('../../background.jpg');
+}
+
+section {
+    width: 960px;
+    height: 718px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    background-image: url('../../concrete-texture.png');
+}
+
+#number{
+    border: solid 3px;
+    padding: 5px;
+    width: 67%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+    background-color: lightgreen;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.smtext {
+    font-size: 10px;
+}
+
+.resource {
+    width: 50px;
+    height: 50px; 
+}
+
+.container {
+    list-style-type: none;
+}
+
+li {
+    display: inline;
+}
+
+img {
+    border: solid 3px;
+    padding: 3px;
+    margin: 3px;
+    background-color: lightblue;
+}
+
