@@ -5,9 +5,9 @@ body {
     background-image: url('../../background.jpg');
 }
 
-section {
+.container {
     width: 960px;
-    height: 718px;
+    height: 750px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
@@ -18,7 +18,7 @@ section {
 #number{
     border: solid 3px;
     padding: 5px;
-    width: 67%;
+    width: 75%;
     text-align: center;
     margin: 0 auto;
     font-size: 16px;
@@ -27,6 +27,7 @@ section {
 
 h1 {
     font-size: 50px;
+
 }
 
 .smtext {
@@ -38,7 +39,7 @@ h1 {
     height: 50px; 
 }
 
-.container {
+.list {
     list-style-type: none;
 }
 

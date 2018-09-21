@@ -1,18 +1,21 @@
 <!doctype html>
 <html lang="en-us">
-    <head>
-        <meta charset="UTF-08">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="./assets/javascript/game.js"></script>
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-        <title>Resource Converter</title>
-    </head>
-    
-    <body>
-        <section>
-            <h1>Resource Converter</h1>
-    
+
+<head>
+    <meta charset="UTF-08">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <title>Resource Converter</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Resource Converter</h1>
+        <div class="row">
+            <div class="col-sm-12">
                 <div id="number"></div>
                 <br>
                 <div id="instructions">
@@ -31,14 +34,16 @@
                         click these resources to convert!
                     </p>
                 </div>
+            </div>
+        </div>
 
-            <ul class="container">
-                <li id="diamond"><img class="resource" src ="assets/images/Diamond.png"></li>
-                <li id="redstone"><img class="resource" src = "assets/images/Redstone.png"></li>
-                <li id="coal"><img class="resource" src = "assets/images/Coal.png"></li>
-                <li id="flint"><img class="resource" src = "assets/images/Flint.png"></li>
-            </ul>
+        <ul class="list">
+            <li id="diamond"><img class="resource" src="assets/images/Diamond.png"></li>
+            <li id="redstone"><img class="resource" src="assets/images/Redstone.png"></li>
+            <li id="coal"><img class="resource" src="assets/images/Coal.png"></li>
+            <li id="flint"><img class="resource" src="assets/images/Flint.png"></li>
+        </ul>
         </section>
-    </body>
-    
+</body>
+
 </html>
